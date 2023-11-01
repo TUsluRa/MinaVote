@@ -1,34 +1,37 @@
-.App {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-  min-height: 100vh;
-  padding: 20px;
-}
 
 .App-header {
-  position: relative;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
+
 .header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 .wallet-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 10px 20px;
+  padding: 0.7rem 1.5rem;
+  background-color: #4CAF50;
+  color: #ffffff;
   border: none;
-  border-radius: 5px;
-  background-color: #4CAF50; 
-  color: #fff;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
 }
 
@@ -36,40 +39,59 @@
   background-color: #388E3C;
 }
 
-.candidate-card {
-  border: 1px solid #e4e4e4;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #fff;
-}
-
-.candidate-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-h1, h2 {
-  color: #333;
-}
-
-p {
-  color: #777;
-}
-
 button {
-  padding: 10px 20px;
+  padding: 0.7rem 1.5rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #007BFF;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
 }
 
 button:hover {
   background-color: #0056b3;
+}
+
+/* Oy kartlarını tanımlayalım */
+form {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.candidate-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+  transition: box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.candidate-image {
+  width: 60%;
+  margin-bottom: 1rem;
+  border-radius: 50%; /* Resmin dairesel olmasını sağlar */
+}
+
+.candidate-card label {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.candidate-card input[type="radio"] {
+  margin-right: 10px;
 }

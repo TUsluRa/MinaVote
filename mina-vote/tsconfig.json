@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "noEmit": true,
+      "allowJs": true ,
+      "allowImportingTsExtensions": true,
+      "jsx": "react",
+      "esModuleInterop": true 
+    },
+  }
+  

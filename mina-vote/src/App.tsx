@@ -1,16 +1,23 @@
-// src/App.tsx
-
 import React, { useState } from 'react';
 import './App.css';
+import { MinimalistVote } from './Backend/VoteCard/Minimal-Schema';
+import { ListVote } from './Backend/VoteCard/List-Schema';
+import { CardStyleVote } from './Backend/VoteCard/Card-Schema';
 
-interface CandidateProps {
+export interface CandidateProps {
   id: string;
   name: string;
   description?: string;
   image?: string;
 }
 
-const candidates: CandidateProps[] = [
+export enum VoteSchemaType {
+  MINIMALIST,
+  LIST,
+  CARD
+}
+
+export const candidates: CandidateProps[] = [
   {
     id: 'candidate1',
     name: 'Candidate 1',
@@ -31,37 +38,23 @@ const candidates: CandidateProps[] = [
 ];
 
 function App() {
-  const [vote, setVote] = useState<string>('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Integrate with Mina Blockchain to record the vote
-    console.log(`Vote: ${vote}`);
-  };
+  const [voteSchema, setVoteSchema] = useState<VoteSchemaType>(VoteSchemaType.CARD);
 
   const connectWallet = () => {
     console.log("Connecting to Wallet...");
-    // TODO: Wallet Connection...
+  
   };
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Mina Blockchain Voting System</h1>
         <button onClick={connectWallet} className="wallet-btn">Connect Wallet</button>
-        <form onSubmit={handleSubmit}>
-          {candidates.map(candidate => (
-            <div key={candidate.id} className="candidate-card">
-              <img src={candidate.image} alt={candidate.name} className="candidate-image" />
-              <h2>{candidate.name}</h2>
-              <p>{candidate.description}</p>
-              <label>
-                <input type="radio" name="vote" value={candidate.id} onChange={e => setVote(e.target.value)} />
-                Vote for {candidate.name}
-              </label>
-            </div>
-          ))}
-          <button type="submit">Submit Vote</button>
-        </form>
+
+        {/* Voting system based on schema */}
+        {voteSchema === VoteSchemaType.MINIMALIST && <MinimalistVote />}
+        {voteSchema === VoteSchemaType.LIST && <ListVote />}
+        {voteSchema === VoteSchemaType.CARD && <CardStyleVote />}
       </header>
     </div>
   );
