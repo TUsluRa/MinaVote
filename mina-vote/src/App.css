@@ -1,3 +1,10 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
 
 .App-header {
   max-width: 1200px;
@@ -6,7 +13,9 @@
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  margin-top: 0; 
 }
+
 
 .header-top {
   display: flex;
@@ -53,45 +62,4 @@ button {
 
 button:hover {
   background-color: #0056b3;
-}
-
-/* Oy kartlarını tanımlayalım */
-form {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.candidate-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 12px;
-  transition: box-shadow 0.3s, transform 0.3s;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.candidate-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.candidate-image {
-  width: 60%;
-  margin-bottom: 1rem;
-  border-radius: 50%; /* Resmin dairesel olmasını sağlar */
-}
-
-.candidate-card label {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.candidate-card input[type="radio"] {
-  margin-right: 10px;
 }

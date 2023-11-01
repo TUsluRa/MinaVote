@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import { MinimalistVote } from './Backend/VoteCard/Minimal-Schema';
-import { ListVote } from './Backend/VoteCard/List-Schema';
-import { CardStyleVote } from './Backend/VoteCard/Card-Schema';
+import { MinimalistVote } from './Backend/VoteCard/Minimal-Schema/MinimalSchema';
+import { ListVote } from './Backend/VoteCard/List-Schema/ListSchema';
+import { CardStyleVote } from './Backend/VoteCard/Card-Schema/CardSchema';
 
 export interface CandidateProps {
   id: string;
@@ -48,10 +48,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Mina Blockchain Voting System</h1>
+        <h1>Mina Protocol Voting System</h1>
         <button onClick={connectWallet} className="wallet-btn">Connect Wallet</button>
 
-        {/* Voting system based on schema */}
         {voteSchema === VoteSchemaType.MINIMALIST && <MinimalistVote />}
         {voteSchema === VoteSchemaType.LIST && <ListVote />}
         {voteSchema === VoteSchemaType.CARD && <CardStyleVote />}

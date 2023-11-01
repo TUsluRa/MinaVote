@@ -1,0 +1,40 @@
+.eliptik-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+  
+  .eliptik-item {
+    background-color: #f2f2f2;
+    height: 150px;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  
+  .eliptik-label {
+    font-size: 1.2rem;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .eliptik-item:hover .eliptik-label {
+    color: #222;
+  }
+  
+  .eliptik-label input[type="radio"] {
+    display: none;
+  }
+  
+  .eliptik-label input[type="radio"]:checked + .eliptik-item {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
