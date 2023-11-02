@@ -4,6 +4,7 @@
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
+  background-color: #e8edea;
 }
 
 .App-header {
@@ -16,8 +17,19 @@
   margin-top: 0; 
 }
 
+.App-Content {
+  top: 20px;
+  max-width: 1200px;
+  width: 1000px;
+  background-color: #f0f0f0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  margin-top: 0; 
+  position: relative;
+}
 
-.header-top {
+.header-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,6 +42,10 @@ h1, h2 {
 
 p {
   margin-bottom: 1rem;
+}
+
+.wallet-container {
+  margin-left: auto;
 }
 
 .wallet-btn {
@@ -47,7 +63,6 @@ p {
 .wallet-btn:hover {
   background-color: #388E3C;
 }
-
 button {
   padding: 0.7rem 1.5rem;
   border: none;

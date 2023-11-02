@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import { MinimalistVote } from './Backend/VoteCard/Minimal-Schema/MinimalSchema';
-import { ListVote } from './Backend/VoteCard/List-Schema/ListSchema';
-import { CardStyleVote } from './Backend/VoteCard/Card-Schema/CardSchema';
+import  MinimalistVote  from './Backend/VoteCard/Minimal-Schema/MinimalSchema';
+import  ListVote  from './Backend/VoteCard/List-Schema/ListSchema';
+import  CardStyleVote  from './Backend/VoteCard/Card-Schema/CardSchema';
 
 export interface CandidateProps {
   id: string;
@@ -38,23 +38,27 @@ export const candidates: CandidateProps[] = [
 ];
 
 function App() {
-  const [voteSchema, setVoteSchema] = useState<VoteSchemaType>(VoteSchemaType.CARD);
+  const [voteSchema, setVoteSchema] = useState<VoteSchemaType>(VoteSchemaType.LIST);
 
   const connectWallet = () => {
     console.log("Connecting to Wallet...");
-  
   };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Mina Protocol Voting System</h1>
-        <button onClick={connectWallet} className="wallet-btn">Connect Wallet</button>
-
+        <div className="header-menu">
+          <div className="wallet-container">
+            <button onClick={connectWallet} className="wallet-btn">Connect Wallet</button>
+          </div>
+        </div>
+      </header>
+      <div className="App-Content">
         {voteSchema === VoteSchemaType.MINIMALIST && <MinimalistVote />}
         {voteSchema === VoteSchemaType.LIST && <ListVote />}
         {voteSchema === VoteSchemaType.CARD && <CardStyleVote />}
-      </header>
+      </div>
     </div>
   );
 }
