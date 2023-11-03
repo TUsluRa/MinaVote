@@ -1,18 +1,182 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+.container{
+    position: relative; 
+    height: 100%;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    align-items: center;
+    height: 99px;
+    background-color: #333;
     color: white;
-    padding: 15px;
+    padding: 0 20px;
+}
+
+.votes-section-slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+    height: 350px;
+    overflow-x: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    margin: 0; 
+    flex-wrap: nowrap; 
+  }
+  
+  .vote-slider-card {
+    background-color: white;
+    width: 210px;
+    height: 300px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer; 
+    overflow: hidden; 
+  }
+  
+  .vote-slider-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .vote-slider-card * {
+    transition: transform 0.3s ease; 
+  }
+  
+  .vote-slider-card:hover * {
+    transform: translateY(-3px); 
+  }
+  
+  .vote-slider-card-title {
+    font-size: 1.25rem;
+    font-weight: 600; 
+    margin: 0.5rem 0; 
+  }
+  
+  .vote-slider-card-description {
+    font-size: 1rem;
+    color: #666;
+    text-align: center; 
+    padding: 0 1rem;
+  }
+
+.Vot-Modul-1 {
+    display: flex; 
+    justify-content: space-between; 
     width: 100%;
 }
+
+.votes-section-list {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+    width: calc(100% - 300px); 
+    margin: 20px 0;
+    position: relative;
+}
+
+.votes-list {
+    background-color: maroon;
+    padding: 20px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.votes-section-top {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    width: 280px;
+    height: 240px;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+}
+
+.votes-section-top-title{
+    width: auto;
+    padding-bottom:10px ;
+}
+
+.top-votes{
+    width: 100%;
+
+    height: 240px;
+    border-radius: 10px;
+}
+
+.top-votes-item {
+  background-color: #ffffff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px; 
+  width: 230px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  padding: 15px;
+  margin: 10px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.top-votes-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.top-votes-profile {
+  background-color: green;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+  margin-right: 10px; 
+}
+
+.top-votes-content {
+  color: #333;
+  text-align: center;
+  margin: 5px 0;
+  flex-grow: 1; 
+}
+
+.top-votes-status {
+  width: 50px; 
+  height: 50px; 
+  margin-left: 10px; 
+}
+
+.votes-list-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    transition: background-color 0.3s;
+    color: black;
+}
+
+.votes-list-item:hover {
+    transform: scale(1.03);
+      background-color: #f9f9f9;
+    }
 
 .avatar {
     background-color: green;
@@ -22,35 +186,9 @@
 }
 
 .button {
-    background-color: grey;
+    background-color: red;
     padding: 10px 20px;
     border: none;
-    color: white;
     cursor: pointer;
 }
 
-.vote-section {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.vote-card {
-    background-color: grey;
-    width: 100px;
-    height: 200px;
-    margin: 0 10px;
-}
-
-.current-votes,
-.top-votes {
-    background-color: black;
-    color: white;
-    padding: 20px;
-    width: 30%;
-}
-
-.current-votes {
-    margin-right: 20px;
-}
