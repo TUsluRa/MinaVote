@@ -1,16 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
+import { requestAccounts } from '../../Frontend/WalletFunction/Walletfunction';
   
-
-
   const HomePage: React.FC = () => {
     const [votesData, setVotesData] = useState([]); 
+
+    const connectWallet = async () => {
+        if (window.mina) {
+          try {
+            const accounts = await requestAccounts();
+            const account = accounts[0];
+            console.log(`Connected with account: ${account}`);
+          } catch (error) {
+            console.error('There was an error connecting to the wallet', error);
+          }
+        } else {
+          console.log('Please install the Mina wallet extension.');
+        }
+      };
+
     return (
         <div className="container">
             <div className="header">
                 <div className="avatar"></div>
                 Mina Vote
-                <button className="button">Connect Wallet</button>
+                <button className="button" onClick={connectWallet}>Connect Wallet</button>
             </div>
 
             <div className='MainContent'>
