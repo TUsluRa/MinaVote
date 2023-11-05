@@ -23,8 +23,8 @@ import { requestAccounts } from '../../Frontend/WalletFunction/Walletfunction';
         <div className="container">
             <div className="header">
                 <div className="avatar"></div>
-                Mina Vote
-                <button className="button" onClick={connectWallet}>Connect Wallet</button>
+                <h1>Mina Vote</h1>
+                <button className="connect-button" onClick={connectWallet}>Connect Wallet</button>
             </div>
 
             <div className='MainContent'>
