@@ -1,9 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 import { requestAccounts } from '../../Frontend/WalletFunction/Walletfunction';
+import { Request } from '../../Backend/Api/SendRequest';
   
   const HomePage: React.FC = () => {
     const [votesData, setVotesData] = useState([]); 
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await Request("GetVoteList",{ HomeData: "Get" } ); 
+            setVotesData(response.data);
+          } catch (error) {
+            console.error("Error fetching votes data:", error);
+          }
+        };
+        fetchData();
+      }, []); 
 
     const connectWallet = async () => {
         if (window.mina) {
@@ -42,6 +55,19 @@ import { requestAccounts } from '../../Frontend/WalletFunction/Walletfunction';
                         <div className="vote-slider-card-title">Vote Title 3</div>
                             <div className="vote-slider-card-description">Description of the vote.</div>
                         </div>
+                        <div className="vote-slider-card">
+                        <div className="vote-slider-card-title">Vote Title 4</div>
+                            <div className="vote-slider-card-description">Description of the vote.</div>
+                        </div>
+                        <div className="vote-slider-card">
+                        <div className="vote-slider-card-title">Vote Title 5</div>
+                            <div className="vote-slider-card-description">Description of the vote.</div>
+                        </div>
+                        <div className="vote-slider-card">
+                        <div className="vote-slider-card-title">Vote Title 6</div>
+                            <div className="vote-slider-card-description">Description of the vote.</div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div className='Vot-Modul-1'>
