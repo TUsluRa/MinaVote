@@ -50,6 +50,20 @@
     transition: all 0.3s ease; 
   }
   
+  .list-right {
+    margin-bottom: 12px;
+    font-size: 1em; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-weight: 500; 
+    color: #555; 
+    background-color: #f9f9f9; 
+    border-radius: 4px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    display: inline-block; 
+    transition: all 0.3s ease; 
+  }
+  
   .list-date:hover {
     color: #333; 
     background-color: #e8e8e8; 
