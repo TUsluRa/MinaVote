@@ -83,9 +83,11 @@ import { Request } from '../../Backend/Api/SendRequest';
                                         <p className="list-description">{vote.Vote_Content}</p>
                                         <p className="list-date">End Date: {vote.Vote_EndDate}</p>
                                     </div>
-                                    <label className="list-vote-label">
-                                        Vote
-                                    </label>
+                                    <div className="list-right">
+                                        <label className="list-vote-label">
+                                            Vote
+                                        </label>
+                                    </div>
                             </div>
                                 ))}
                         </div>
