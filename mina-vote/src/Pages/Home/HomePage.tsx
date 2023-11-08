@@ -32,6 +32,21 @@ import { Request } from '../../Backend/Api/SendRequest';
         }
       };
 
+      const SendVote = async () => {
+        if (window.mina) {
+          try {
+            const accounts = await requestAccounts();
+            const account = accounts[0];
+            console.log(`Connected with account: ${account}`);
+          } catch (error) {
+            console.error('There was an error connecting to the wallet', error);
+          }
+        } else {
+          console.log('Please install the Mina wallet extension.');
+        }
+      };
+
+
     return (
         <div className="container">
             <div className="header">
@@ -84,9 +99,9 @@ import { Request } from '../../Backend/Api/SendRequest';
                                         <p className="list-date">End Date: {vote.Vote_EndDate}</p>
                                     </div>
                                     <div className="list-right">
-                                        <label className="list-vote-label">
+                                        <button onClick={SendVote} className="list-vote-label">
                                             Vote
-                                        </label>
+                                        </button>
                                     </div>
                             </div>
                                 ))}
