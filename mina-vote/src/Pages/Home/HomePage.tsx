@@ -11,12 +11,24 @@ type VoteData = {
   Vote_EndDate: string;
   Vote_Image?: string;
 };
+
+type SliderData = {
+  Slider_ID: string;
+  Slider_Items: string;
+  Slider_Name: string;
+  Slider_Image: string;
+};
+type CombinedData = VoteData | SliderData;
+
   const HomePage: React.FC = () => {
     const [votesData, setVotesData] = useState<VoteData[]>([]);
-    const [selectedVote, setSelectedVote] = useState<VoteData | null>(null);
+    const [sliderData, setSliderData] = useState<SliderData[]>([]);
+    const [selectedVote, setSelectedVote] = useState<CombinedData | null>(null);
+
   
 
-    const ShowVoteCard = (vote: VoteData) => {
+    const ShowVoteCard = (vote: VoteData | SliderData) => {
+      console.log("ShowVoteCard called with:", vote);
       setSelectedVote(vote); 
     };
   
@@ -28,6 +40,8 @@ type VoteData = {
         const fetchData = async () => {
           try {
             const response = await Request("GetVoteList",{ HomeData: "Get" } ); 
+            const response2 = await Request("GetSliderList",{ HomeData: "Get" } ); 
+            setSliderData(response2.data);
             setVotesData(response.data);
           } catch (error) {
             console.error("Error fetching votes data:", error);
@@ -52,13 +66,12 @@ type VoteData = {
     return (
         <div className="container">
           {selectedVote && (
-        <VoteCard
-          vote={selectedVote}
-          closeVoteCard={closeVoteCard}
-        />
-      )}
+  <VoteCard
+    vote={selectedVote}
+    closeVoteCard={closeVoteCard}
+  />
+)}
             <div className="header">
-                <div className="avatar-header"></div>
                 <h1>Mina Vote</h1>
                 <button className="connect-button" onClick={connectWallet}>Connect Wallet</button>
             </div>
@@ -66,32 +79,16 @@ type VoteData = {
             <div className='MainContent'>
                 <div className="votes-section-slider">
                     <div className="slider">
-                        <div className="vote-slider-card">
-                            <div className="vote-slider-card-title">Vote Title 1</div>
-                            <div className="vote-slider-card-description">Description of the vote.</div>
+                      {sliderData.map((data) => (
+                        <div className="vote-slider-card" key={data.Slider_ID} style={{ backgroundImage: `url(${data.Slider_Image})` }} >
+                          <div className="vote-slider-card-title">{data.Slider_Name}</div>
+                          <div className="vote-slider-card-description">{data.Slider_Items}</div>
+                          <div className='vote-slider-card-bottom'>
+                          <button onClick={() => ShowVoteCard(data)} className="slider-vote-label">Vote</button>
+                          </div>
                         </div>
-                        <div className="vote-slider-card">
-                        <div className="vote-slider-card-title">Vote Title 2</div>
-                            <div className="vote-slider-card-description">Description of the vote.</div>
-                        </div>
-                        <div className="vote-slider-card">
-                        <div className="vote-slider-card-title">Vote Title 3</div>
-                            <div className="vote-slider-card-description">Description of the vote.</div>
-                        </div>
-                        <div className="vote-slider-card">
-                        <div className="vote-slider-card-title">Vote Title 4</div>
-                            <div className="vote-slider-card-description">Description of the vote.</div>
-                        </div>
-                        <div className="vote-slider-card">
-                        <div className="vote-slider-card-title">Vote Title 5</div>
-                            <div className="vote-slider-card-description">Description of the vote.</div>
-                        </div>
-                        <div className="vote-slider-card">
-                        <div className="vote-slider-card-title">Vote Title 6</div>
-                            <div className="vote-slider-card-description">Description of the vote.</div>
-                        </div>
-                        
-                    </div>
+                      ))}
+                     </div>
                 </div>
                 <div className='Vot-Modul-1'>
                     <div className="votes-section-list">

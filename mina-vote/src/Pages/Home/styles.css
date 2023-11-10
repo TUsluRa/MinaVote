@@ -92,6 +92,9 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     cursor: pointer; 
     overflow: hidden; 
+    background-repeat: no-repeat;
+    background-position:fixed;
+    background-size:cover;
   }
   
   .vote-slider-card:hover {
@@ -108,16 +111,47 @@
   }
   
   .vote-slider-card-title {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 600; 
     margin: 0.5rem 0; 
+    text-align: center;
+    color: #ececec;
+    background-color: rgb(45, 45, 46, 0.8);
+    border-radius: 10px;
+    padding: 4px;
   }
   
   .vote-slider-card-description {
     font-size: 1rem;
-    color: #666;
+    color: #000000;
     text-align: center; 
     padding: 0 1rem;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .vote-slider-card-bottom {
+    font-size: 0.9rem;
+    color: #000000;
+    text-align: center; 
+    padding: 0 1rem;
+    margin-top:10px;
+  }
+
+
+  .slider-vote-label {
+    padding: 10px 20px; 
+    font-size: 1rem; 
+    font-weight: 600;
+    color: #fff; 
+    background-color: #6dd5ed; 
+    border: none; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+  }
+  
+  .slider-vote-label:hover {
+    background-color: #5bc0de;
   }
 
 .Vot-Modul-1 {
