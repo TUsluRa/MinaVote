@@ -1,7 +1,7 @@
 export async function Request(method, postData) {
   try {
     console.log("Sending data to server:", postData);
-    const response = await fetch(`http://yourapiadress/${method}`, {
+    const response = await fetch(`http://160.20.108.68:3040/${method}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
