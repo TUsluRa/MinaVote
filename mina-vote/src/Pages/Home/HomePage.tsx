@@ -113,12 +113,14 @@ type CombinedData = VoteData | SliderData;
                         </div>
                     </div>
                     <div className="votes-section-top">
-                        <div className="top-votes">                            
+                        <div className="top-votes">
+                            {/*                     
                             <div className="top-votes-item">
                                 <div className="top-votes-profile"></div>
-                                <div className="top-votes-content"><p>Test-1</p></div>
+                                <div className="top-votes-content"><p>Top Votes - 1</p></div>
                                 <div className="top-votes-status"></div>
                             </div>
+                            */  }  
                         </div>
                     </div>
                 </div>
