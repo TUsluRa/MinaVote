@@ -2,9 +2,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 import { requestAccounts } from '../../Frontend/WalletFunction/Walletfunction';
 import { Request } from '../../Backend/Api/SendRequest';
+import VoteCard from '../../Frontend/VoteCard/VoteCard';
   
+type VoteData = {
+  id: string;
+  Vote_Name: string;
+  Vote_Content: string;
+  Vote_EndDate: string;
+  Vote_Image?: string;
+};
   const HomePage: React.FC = () => {
-    const [votesData, setVotesData] = useState([]); 
+    const [votesData, setVotesData] = useState<VoteData[]>([]);
+    const [selectedVote, setSelectedVote] = useState<VoteData | null>(null);
+  
+
+    const ShowVoteCard = (vote: VoteData) => {
+      setSelectedVote(vote); 
+    };
+  
+    const closeVoteCard = () => {
+      setSelectedVote(null);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,26 +49,16 @@ import { Request } from '../../Backend/Api/SendRequest';
           console.log('Please install the Mina wallet extension.');
         }
       };
-
-      const SendVote = async () => {
-        if (window.mina) {
-          try {
-            const accounts = await requestAccounts();
-            const account = accounts[0];
-            console.log(`Connected with account: ${account}`);
-          } catch (error) {
-            console.error('There was an error connecting to the wallet', error);
-          }
-        } else {
-          console.log('Please install the Mina wallet extension.');
-        }
-      };
-
-
     return (
         <div className="container">
+          {selectedVote && (
+        <VoteCard
+          vote={selectedVote}
+          closeVoteCard={closeVoteCard}
+        />
+      )}
             <div className="header">
-                <div className="avatar"></div>
+                <div className="avatar-header"></div>
                 <h1>Mina Vote</h1>
                 <button className="connect-button" onClick={connectWallet}>Connect Wallet</button>
             </div>
@@ -99,9 +107,9 @@ import { Request } from '../../Backend/Api/SendRequest';
                                         <p className="list-date">End Date: {vote.Vote_EndDate}</p>
                                     </div>
                                     <div className="list-right">
-                                        <button onClick={SendVote} className="list-vote-label">
-                                            Vote
-                                        </button>
+                                    <button onClick={() => ShowVoteCard(vote)} className="list-vote-label">
+                                      Vote
+                                    </button>
                                     </div>
                             </div>
                                 ))}
